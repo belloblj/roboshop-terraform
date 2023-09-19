@@ -1,3 +1,13 @@
+data "aws_ami" "centos" {
+  owners           = ["755011271549"]
+  most_recent      = true
+  name_regex       = "Centod-8-DevOps-Practice"
+}
+
+output "ami" {
+  value = data.aws_ami.centos.image_id
+}
+
 resource "aws_instance" "frontend" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
