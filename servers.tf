@@ -1,5 +1,5 @@
 data "aws_ami" "centos" {
-  owners           = ["755011271549"]
+  owners           = ["973714476881"]
   most_recent      = true
   name_regex       = "Centos-8-DevOps-Practice"
 }
@@ -14,7 +14,7 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = "Z0060273FBR22P4HG864"
+  zone_id = "Z03986262CQPCHNJNZM9L"
   name    = "frontend.robobello.shop"
   type    = "A"
   ttl     = 30
