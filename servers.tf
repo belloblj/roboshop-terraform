@@ -12,6 +12,23 @@ variable "instance_type" {
   default = "t3.small"
 }
 
+variable "components" {
+  default = [ "frontend", "mongodb", "catalogue", "redis", "user", "shipping", "cart", "mysql", "rabbitmq", "payment", "dispatch" ]
+}
+
+resource "aws_instance" "instance" {
+  count = length(var.components)
+  ami = data.aws_ami.centos.image_id
+  instance_type = var.instance_type
+  vpc_security_group_ids = [ data.aws_security_group.allow-all.id ]
+
+  tags = {
+    Name = var.components[count.index]
+  }
+}
+
+
+/*
 resource "aws_instance" "frontend" {
   ami           = data.aws_ami.centos.image_id
   instance_type = var.instance_type
@@ -192,4 +209,4 @@ resource "aws_instance" "dispatch" {
   tags = {
     Name = "dispatch"
   }
-}
+}*/
