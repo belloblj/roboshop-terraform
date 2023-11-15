@@ -4,7 +4,7 @@ data "aws_ami" "centos" {
   name_regex       = "Centos-8-DevOps-Practice"
 }
 
-data "aaws_security_group" "allow-all" {
+data "aws_security_group" "allow-all" {
   name = "allow-all"
 }
 
