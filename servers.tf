@@ -8,9 +8,9 @@ data "aws_security_group" "allow-all" {
   name = "allow-all"
 }
 
-variable "instance_type" {
-  default = "t3.small"
-}
+#variable "instance_type" {
+#  default = "t3.small"
+#}
 
 variable "components" {
   default = {
@@ -24,7 +24,7 @@ variable "components" {
     }
     catalogue = {
       name = "catalogue"
-      instance_type = "t3.small"
+      instance_type = "t3.micro"
     }
     redis = {
       name = "redis"
@@ -36,11 +36,11 @@ variable "components" {
     }
     shipping = {
       name = "shipping"
-      instance_type = "t3.small"
+      instance_type = "t3.medium"
     }
     cart = {
       name = "cart"
-      instance_type = "t3.small"
+      instance_type = "t3.micro"
     }
     mysql = {
       name = "mysql"
@@ -48,6 +48,10 @@ variable "components" {
     }
     rabbitmq = {
       name = "rabbitmq"
+      instance_type = "t3.small"
+    }
+    payment = {
+      name = "payment"
       instance_type = "t3.small"
     }
   }
