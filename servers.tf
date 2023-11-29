@@ -68,6 +68,15 @@ resource "aws_instance" "instance" {
   }
 }
 
+resource "aws_route53_record" "records" {
+  for_each = var.components
+  zone_id = "Z0060273FBR22P4HG864"
+  name    = "${each.value["name"]}.robobello.shop"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance[each.value["name"]].private_ip]
+}
+
 
 /*
 resource "aws_instance" "frontend" {
