@@ -34,7 +34,7 @@ components = {
     mysql = {
       name = "mysql"
       instance_type = "t3.small"
-      password = "Roboshop123"
+      password = "Roboshop@1"
     }
     rabbitmq = {
       name = "rabbitmq"
